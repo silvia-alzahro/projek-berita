@@ -1,38 +1,23 @@
-@extends('layouts.app')
+@extends('adminlte::page')
+@section('title', 'Dasboard')
+
+
+@section('content_header')
+
+<h3><center>Membuat Berita</center></h3>
+
+@stop
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-                    <div class="card-body">
-                        @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                          </div>
-                        @endif
-                        @role('admin')
-                        <p>This is visible to users with the admin role. Gets translated to
-                        \Laratrust::hasRole('admin')</p>
-                          @endrole
+Welcome to this beatiful admin panel.
 
-                        @role('pengguna')
-                          <p>This is visible to users with the admin role. Gets translated to
-                          \Laratrust::hasRole('pengguna')</p>
-                             @endrole
+@stop
 
-                    {{ __('You are logged in!') }}
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-@endsection
+@section('css')
+
+@stop
+
+@section('js')
+
+@stop
