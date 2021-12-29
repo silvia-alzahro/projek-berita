@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\BeritaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,11 +50,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // });
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function(){
-   Route::get('buku', function(){
-       return view('buku.index');
+   Route::get('berita', function(){
+       return view('berita.index');
 })->middleware(['role:admin|pengguna']);
 
-Route::get('pengarang', function(){
-    return view('pengarang.index');
+Route::get('kategori', function(){
+    return view('kategori.index');
 })->middleware(['role:admin']);
 });

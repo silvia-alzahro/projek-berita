@@ -227,9 +227,45 @@ return [
     'menu' => [
         // Navbar items:
         [
-            'type'         => 'navbar-search',
-            'text'         => 'search',
-            'topnav_right' => true,
+            [
+                'text'        => 'HOME',
+                'url'         => 'home',
+                'icon'        => 'fas fa-fw fa-home',
+                'label'       => 4,
+                'label_color' => 'success',
+            ],
+            [
+                'text'        => 'Berita',
+                'url'         => 'admin/berita',
+                'icon'        => 'far fa-fw fa-file',
+                'label_color' => 'success',
+            ],
+            ['header' => 'kategori berita'],
+        [
+            'text'       => 'terbaru',
+            'icon_color' => 'red',
+            'url'        => '#',
+        ],
+        [
+            'text'       => 'olahraga',
+            'icon_color' => 'yellow',
+            'url'        => '#',
+        ],
+        [
+            'text'       => 'edukasi',
+            'icon_color' => 'cyan',
+            'url'        => '#',
+        ],
+        [
+            'text'       => 'politik',
+            'icon_color' => 'brown',
+            'url'        => '#',
+        ],
+        [
+            'text'       => 'ekonomi/bisnis',
+            'icon_color' => 'coral',
+            'url'        => '#',
+        ],
         ],
 
         // Sidebar items:
@@ -242,22 +278,16 @@ return [
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
-        [
-            'text'        => 'Pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'fas fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
-        ],
         
         [
-            'text'        => 'buku',
-            'url'         => 'admin/buku',
+            'text'        => 'HOME',
+            'url'         => 'home',
+            'label'       => 4,
             'icon'        => 'fas fa-fw fa-file',
         ],
         [
-            'text'        => 'Pengarang',
-            'url'         => 'admin/pengarang',
+            'text'        => 'MEMBUAT BERITA',
+            'url'         => 'admin/berita',
             'icon'        => 'fas fa-fw fa-file',
         ],
         [
