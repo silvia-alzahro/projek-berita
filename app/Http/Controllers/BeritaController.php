@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Berita;
+use App\Models\Kategori;
 use Illuminate\Http\Request;
 
 class BeritaController extends Controller
@@ -16,6 +17,7 @@ class BeritaController extends Controller
     {
         $berita = Berita::all();
         return view('berita.index', compact('berita'));
+
     }
 
     /**
@@ -25,7 +27,10 @@ class BeritaController extends Controller
      */
     public function create()
     {
-        return view('berita.create');
+        $berita = Berita::all();
+        $kategori = Kategori::all();
+        return view('berita.create', compact('berita', 'kategori'));
+
     }
 
     /**
@@ -36,7 +41,7 @@ class BeritaController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $validated = $request->validate([
             'judul' => 'required',
             'isi' => 'required',
             'id_kategori' => 'required',
@@ -48,16 +53,19 @@ class BeritaController extends Controller
         $berita->judul = $request->judul;
         $berita->isi = $request->isi;
         $berita->id_kategori = $request->id_kategori;
-        if ($request->hasFile('poto')) {
+        
+        if ($request->hasFile('poto')){
             $image = $request->file('poto');
-            $name = rand(1000, 9999) . $image->getClientOriginalName();
-            $image->move('images/beritas/', $name);
-            $berita->poto = $name;
+            $name = rand(1000,9999) . $image->getClientOriginalName();
+            $image->move('image/berita/', $name);
+            $berita->poto = $request->poto;
         }
         $berita->nama_penulis = $request->nama_penulis;
         $berita->tanggal = $request->tanggal;
+
         $berita->save();
         return redirect()->route('berita.index');
+
     }
 
     /**
@@ -68,8 +76,7 @@ class BeritaController extends Controller
      */
     public function show(Berita $berita)
     {
-        $berita = Berita::findOrFail($id);
-        return view('berita.show', compact('berita'));
+        
     }
 
     /**
@@ -80,8 +87,7 @@ class BeritaController extends Controller
      */
     public function edit(Berita $berita)
     {
-        $berita = Berita::findOrFail($id);
-        return view('berita.edit', compact('berita'));
+
     }
 
     /**
@@ -91,33 +97,33 @@ class BeritaController extends Controller
      * @param  \App\Models\Berita  $berita
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Berita $berita)
+    public function update(Request $request, $id)
     {
-        $request->validate([
+        $validated = $request->validate([
             'judul' => 'required',
             'isi' => 'required',
             'id_kategori' => 'required',
-            'poto' => 'required',
+            'poto' => 'required|image|max:2048',
             'nama_penulis' => 'required',
             'tanggal' => 'required',
         ]);
-
         $berita = Berita::findOrFail($id);
         $berita->judul = $request->judul;
         $berita->isi = $request->isi;
         $berita->id_kategori = $request->id_kategori;
-
-        if ($request->hasFile('poto')) {
-            $berita->deleteImage();
+        
+        if ($request->hasFile('poto')){
             $image = $request->file('poto');
-            $name = rand(1000, 9999) . $image->getClientOriginalName();
-            $image->move('images/beritas/', $name);
-            $berita->poto = $name;
+            $name = rand(1000,9999) . $image->getClientOriginalName();
+            $image->move('image/berita/', $name);
+            $berita->poto = $request->poto;
         }
         $berita->nama_penulis = $request->nama_penulis;
         $berita->tanggal = $request->tanggal;
+
         $berita->save();
         return redirect()->route('berita.index');
+    
     }
 
     /**
@@ -126,10 +132,14 @@ class BeritaController extends Controller
      * @param  \App\Models\Berita  $berita
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Berita $berita)
+    public function destroy($id)
     {
         $berita = Berita::findOrFail($id);
+        $berita->deleteImage();
+
         $berita->delete();
+
         return redirect()->route('berita.index');
+
     }
 }

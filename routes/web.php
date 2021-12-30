@@ -58,3 +58,6 @@ Route::get('kategori', function(){
     return view('kategori.index');
 })->middleware(['role:admin']);
 });
+
+Route::resource('berita',BeritaController::class);
+Route::resource('kategori',KategoriController::class);

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kategori;
-use App\Models\Berita;
 use Illuminate\Http\Request;
 
 class KategoriController extends Controller
@@ -52,7 +51,7 @@ class KategoriController extends Controller
      * @param  \App\Models\Kategori  $kategori
      * @return \Illuminate\Http\Response
      */
-    public function show(Kategori $id)
+    public function show($id)
     {
         $kategori = Kategori::findOrFail($id);
         return view('kategori.show', compact('kategori'));
@@ -65,7 +64,7 @@ class KategoriController extends Controller
      * @param  \App\Models\Kategori  $kategori
      * @return \Illuminate\Http\Response
      */
-    public function edit(Kategori $id)
+    public function edit($id)
     {
         $kategori = Kategori::findOrFail($id);
         return view('kategori.edit', compact('kategori'));
@@ -79,7 +78,7 @@ class KategoriController extends Controller
      * @param  \App\Models\Kategori  $kategori
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Kategori $id)
+    public function update(Request $request, $id)
     {
         $kategori = Kategori::findOrFail($id);
         $kategori->nama_kategori = $request->nama_kategori;
