@@ -57,9 +57,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="panel panel-default">
-                            <div class="btn btn-primary">
-                                Tambah Data
-                            </div>
+                            
                             <form Action="{{ route('berita.store')}}" method="post" enctype="multipart/form-data">
                                 @csrf
 
@@ -69,21 +67,16 @@
                                  </div>
                                  <div class="panel-body">
                                     <label>Isi</label>
-                                    <textarea input type="text" class="form-control" name="isi"></textarea>
+                                    <textarea class="form-control" name="isi"></textarea>
                                 </div>
                                  <div class="panel-body">
                                       <label> kategori</label>
                                       <select name="id_kategori" class="form-control">
                                          @foreach($kategori as $data)
-                                         <option value="{{$data->id_kategori}}">{{$data->nama_kategori}}</option>
+                                         <option value="{{$data->id}}">{{$data->nama_kategori}}</option>
                                          @endforeach
                                       </select>
                                   </div>
-                                  <div class="panel-body">
-                                      <label>poto</label>
-                                      <input class="form-control" type="file" id="poto" name="poto">
-
-                                      </div>
                                    <div class="panel-body">
                                        <label>nama penulis</label>
                                        <input type="text" class="form-control" name="nama_penulis">

@@ -43,7 +43,7 @@
                 <!-- End of Topbar -->
 
 
-<div id="page-wrapper">
+                <div id="page-wrapper">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12">
@@ -72,9 +72,10 @@
         </form>
 
     </div>
- <!-- TABEL -->
+
+<!-- TABEL -->
                     <!-- /.row -->
-                </div>
+                    </div>
                 <!-- /.container-fluid -->
             </div>
             <!-- /#page-wrapper -->
@@ -101,6 +102,3 @@
 
 </body>
 </html>
-
-
-

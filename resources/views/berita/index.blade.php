@@ -68,7 +68,6 @@
                                                     <th>judul</th>
                                                     <th>isi</th>
                                                     <th>kategori</th>
-                                                    <th>poto</th>
                                                     <th>nama penulis</th>
                                                     <th>tanggal</th>
                                                       <th>aksi</th>
@@ -82,8 +81,7 @@
                                                    <td>{{ $no++ }}</td>
                                                    <td>{{ $data->judul}}</td>
                                                    <td>{{ $data->isi}}</td>
-                                                    <td>{{ $data->kategori->nama_kategori}}</td>
-                                                   <td><img src="{{$data->image()}}" alt="" style="width:150px; height:150px;" alt="poto"></td>
+                                                   <td>{{ $data->kategori->nama_kategori}}</td>
                                                    <td>{{ $data->nama_penulis}}</td>
                                                    <td>{{ $data->tanggal}}</td>
 
