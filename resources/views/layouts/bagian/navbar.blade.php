@@ -6,7 +6,7 @@
                     </button>
 
                     <!-- Topbar Search -->
-                    <center><h2>Membuat Berita</h2></center>
+                    <center><h2>Berita.com</h2></center>
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 

@@ -57,7 +57,7 @@
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     Data kategori
-                                            <a href="{{ route('kategori.create')}}" class="btn btn-primary float-rigth">Tambah</a>
+                                            <a href="{{ route('kategori.create')}}" class="btn btn-primary float-rigth">Tambah Data</a>
 
                                   </div>
                                 <!-- /.panel-heading -->
@@ -66,28 +66,28 @@
                                         <table class="table">
                                             <thead>
                                                 <tr>
-                                                    <th>ID</th>
+                                                    <th>No</th>
                                                     <th>Kategori</th>
                                                     <th>Aksi</th>
 
                                                 </tr>
                                             </thead>
- <tbody>
+                                            <tbody>
                                                 @php  $no=1; @endphp
                                                 @foreach($kategori as $data)
                                                 <tr>
                                                    <td>{{ $no++ }}</td>
                                                    <td>{{ $data->nama_kategori}}</td>
-
-
                                                    <td>
-                                                       <form action="{{route('kategori.destroy',$data->id)}}" method="post">
-                                                           @method('delete')
-                                                           @csrf
-                                                       <a href="{{ route('kategori.edit',$data->id)}}" class="btn btn-success float-rigth">Ubah</a>
-                                                <button type="sumbit" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin akan menghapus ini?')">Hapus</button>
-
-                                                 </form>
+                                                        <form action="{{ route('kategori.destroy', $data->id) }}" method="POST">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            
+                                                        <a href="{{ route('kategori.edit', $data->id) }}" class="btn btn-success">Ubah</a>
+                                                        <a href="{{ route('kategori.show', $data->id) }}" class="btn btn-warning">Tampil</a>
+                                                            <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah anda yakin menghapus ini?');">Hapus</button>
+                                                        </form>
+                                                    </td>
                                                    </td>
                                                 </tr>
                                                 @endforeach

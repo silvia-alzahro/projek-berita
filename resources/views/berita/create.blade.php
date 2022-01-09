@@ -77,6 +77,10 @@
                                          @endforeach
                                       </select>
                                   </div>
+                                  <div class="panel-body">
+                                      <label>poto</label>
+                                      <input class="form-control" type="file" id="poto" name="poto">
+                                      </div>
                                    <div class="panel-body">
                                        <label>nama penulis</label>
                                        <input type="text" class="form-control" name="nama_penulis">
@@ -87,7 +91,7 @@
                                    </div>
                                 <div class="panel-body">
                                     <button type="reset" class="btn btn-warning">Reset</button>
-                                    <button type="submit" class="btn btn-primary">Tambah</button>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
                                 </div>
                             </form>
                         </div>

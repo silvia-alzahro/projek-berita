@@ -36,12 +36,17 @@
         <div id="content-wrapper" class="d-flex flex-column">
 
             <!-- Main Content -->
-            <div id="content">
+            
 
                 <!-- Topbar -->
                 @include('layouts.bagian.navbar')
                 <!-- End of Topbar -->
-
+                <div id="content">
+            <header class="masthead" >
+                <center><h1>SELAMAT DATANG</h1>
+                        <h1>DI SITUS ADMIN SMK ASSALAAM BANDUNG</h1><br>
+                <img src="{{asset('backend/img/download.png')}}" alt="..." /></center>
+            </header>
                 <!-- Begin Page Content -->
                
             <!-- End of Main Content -->

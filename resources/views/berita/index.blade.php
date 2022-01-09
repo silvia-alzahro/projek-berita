@@ -68,10 +68,10 @@
                                                     <th>judul</th>
                                                     <th>isi</th>
                                                     <th>kategori</th>
+                                                    <th>poto</th>
                                                     <th>nama penulis</th>
                                                     <th>tanggal</th>
                                                       <th>aksi</th>
-
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -82,19 +82,19 @@
                                                    <td>{{ $data->judul}}</td>
                                                    <td>{{ $data->isi}}</td>
                                                    <td>{{ $data->kategori->nama_kategori}}</td>
+                                                   <td><img src="{{$data->image()}}" alt="" style="width:150px; height:150px;" alt="poto"></td>
                                                    <td>{{ $data->nama_penulis}}</td>
                                                    <td>{{ $data->tanggal}}</td>
-
-
                                                    <td>
-                                                       <form action="{{route('berita.destroy',$data->id)}}" method="post">
-                                                           @method('delete')
-                                                           @csrf
-                                                       <a href="{{ route('berita.edit',$data->id)}}" class="btn btn-success float-rigth">Ubah</a>
-                                                <button type="sumbit" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin akan menghapus ini?')">Hapus</button>
-
-                                                 </form>
-                                                   </td>
+                                                        <form action="{{ route('berita.destroy', $data->id) }}" method="POST">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            
+                                                        <a href="{{ route('berita.edit', $data->id) }}" class="btn btn-success">Ubah</a>
+                                                        <a href="{{ route('berita.show', $data->id) }}" class="btn btn-warning">Tampil</a>
+                                                            <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah anda yakin menghapus ini?');">Hapus</button>
+                                                        </form>
+                                                    </td>
                                                 </tr>
                                                 @endforeach
                                             </tbody>

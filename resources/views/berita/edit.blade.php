@@ -57,14 +57,40 @@
             <div class="col-lg-12">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    Edit Data Kategori
+                                    Edit Data Berita
         </div>
-        <form Action="{{ route('kategori.update', $kategori->id)}}" method="post">
+        <form Action="{{ route('berita.update', $berita->id)}}" method="post" enctype="multipart/form-data">
             @csrf
             @method('put')
             <div class="panel-body">
-                <label>Nama kategori</label>
-                <input type="text" class="form-control" name="nama_kategori">
+                <label>judul</label>
+                <input type="text" class="form-control" name="judul">
+            </div>
+            <div class="panel-body">
+                <label>isi</label>
+                <textarea class="form-control" name="isi"></textarea>
+            </div>
+            <div class="panel-body">
+                <label> kategori</label>
+                <select name="id_kategori" class="form-control">
+                @foreach($kategori as $data)
+                <option value="{{$data->id}}">{{$data->nama_kategori}}</option>
+                @endforeach
+                </select>
+            </div>
+            <div class="panel-body">
+                <label>poto</label>
+                <img src="{{ $data->image }}" height="75" style="padding:10px;" />
+                <input class="form-control" value="{{$data->poto }}" type="file" id="poto" name="poto">
+                
+            </div>
+            <div class="panel-body">
+                <label>nama penulis</label>
+                <input type="text" class="form-control" name="nama_penulis">
+            </div>
+            <div class="panel-body">
+                <label>tanggal</label>
+                <input type="date" class="form-control" name="tanggal">
             </div>
             <div class="panel-body">
                 <button type="reset" class="btn btn-warning">Reset</button>
@@ -83,6 +109,7 @@
 
         </div>
         <!-- /#wrapper -->
+  
 
         <!-- Bootstrap core JavaScript-->
     <script src="{{asset('backend/vendor/jquery/jquery.min.js')}}"></script>
