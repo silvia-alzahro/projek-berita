@@ -36,6 +36,7 @@
                         <a class="collapse-item" href="kategori">Tips & Trik</a>
                         <a class="collapse-item" href="kategori">Edukasi</a>
                         <a class="collapse-item" href="kategori">Politik</a>
+                        <a class="collapse-item" href="kategori">Ekonomi & Bisnis</a>
                     </div>
                 </div>
             </li>

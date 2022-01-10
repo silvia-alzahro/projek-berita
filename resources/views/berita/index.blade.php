@@ -54,7 +54,7 @@
                         <div class="col-lg-12">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    data berita
+                                    Membuat Berita
                                         <a href="{{ route('berita.create')}}" class="btn btn-sm btn-info float-rigth">Tambah</a>
 
                                </div>

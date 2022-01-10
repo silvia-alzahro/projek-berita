@@ -44,7 +44,7 @@
                 <div id="content">
             <header class="masthead" >
                 <center><h1>SELAMAT DATANG</h1>
-                        <h1>DI SITUS ADMIN SMK ASSALAAM BANDUNG</h1><br>
+                        <h1>DI SITUS WEBSITE BERITA SMK ASSALAAM BANDUNG</h1><br>
                 <img src="{{asset('backend/img/download.png')}}" alt="..." /></center>
             </header>
                 <!-- Begin Page Content -->
