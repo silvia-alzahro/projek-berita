@@ -1,129 +1,19 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<title>The News Reporter</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" type="text/css" href="{{asset('frontend/assets/font/font-awesome.min.css')}}" />
-<link rel="stylesheet" type="text/css" href="{{asset('frontend/assets/font/font.css')}}" />
-<link rel="stylesheet" type="text/css" href="{{asset('frontend/assets/css/bootstrap.min.css')}}" media="screen" />
-<link rel="stylesheet" type="text/css" href="{{asset('frontend/assets/css/style.css')}}" media="screen" />
-<link rel="stylesheet" type="text/css" href="{{asset('frontend/assets/css/responsive.css')}}" media="screen" />
-<link rel="stylesheet" type="text/css" href="{{asset('frontend/assets/css/jquery.bxslider.css')}}" media="screen" />
-</head>
-<body>
-<div class="body_wrapper">
-  <div class="center">
-    <div class="header_area">
-      <div class="logo floatleft"><a href="#"><img src="images/logo.png" alt="" /></a></div>
-      <div class="top_menu floatleft">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact us</a></li>
-          <li><a href="#">Subscribe</a></li>
-          <li><a href="#">Login</a></li>
-        </ul>
-      </div>
-      <div class="social_plus_search floatright">
-        <div class="social">
-          <ul>
-            <li><a href="#" class="twitter"></a></li>
-            <li><a href="#" class="facebook"></a></li>
-            <li><a href="#" class="feed"></a></li>
-          </ul>
-        </div>
-        <div class="search">
-          <form action="#" method="post" id="search_form">
-            <input type="text" value="Search news" id="s" />
-            <input type="submit" id="searchform" value="search" />
-            <input type="hidden" value="post" name="post_type" />
-          </form>
-        </div>
-      </div>
-    </div>
-    <div class="main_menu_area">
-      <ul id="nav">
-        <li><a href="#">world news</a>
-          <ul>
-            <li><a href="#">Single item</a></li>
-            <li><a href="#">Single item</a></li>
-            <li><a href="#">Single item</a>
-              <ul>
-                <li><a href="#">Single item</a></li>
-                <li><a href="#">Single item</a></li>
-                <li><a href="#">Single item</a></li>
-                <li><a href="#">Single item</a></li>
-                <li><a href="#">Single item</a></li>
-              </ul>
-            </li>
-            <li><a href="#">Single item</a></li>
-            <li><a href="#">Single item</a></li>
-          </ul>
-        </li>
-        <li><a href="#">sports</a></li>
-        <li><a href="#">tech</a>
-          <ul>
-            <li><a href="#">Single item</a></li>
-            <li><a href="#">Single item</a></li>
-            <li><a href="#">Single item</a></li>
-            <li><a href="#">Single item</a></li>
-            <li><a href="#">Single item</a></li>
-          </ul>
-        </li>
-        <li><a href="#">business</a></li>
-        <li><a href="#">Movies</a>
-          <ul>
-            <li><a href="#">Single item</a></li>
-            <li><a href="#">Single item</a></li>
-            <li><a href="#">Single item</a>
-              <ul>
-                <li><a href="#">Single item</a></li>
-                <li><a href="#">Single item</a></li>
-                <li><a href="#">Single item</a></li>
-                <li><a href="#">Single item</a></li>
-                <li><a href="#">Single item</a></li>
-              </ul>
-            </li>
-            <li><a href="#">Single item</a></li>
-            <li><a href="#">Single item</a></li>
-          </ul>
-        </li>
-        <li><a href="#">entertainment</a></li>
-        <li><a href="#">culture</a></li>
-        <li><a href="#">Books</a>
-          <ul>
-            <li><a href="#">Single item</a></li>
-            <li><a href="#">Single item</a></li>
-            <li><a href="#">Single item</a></li>
-            <li><a href="#">Single item</a></li>
-            <li><a href="#">Single item</a></li>
-          </ul>
-        </li>
-        <li><a href="#">classifieds</a></li>
-        <li><a href="#">blogs</a></li>
-      </ul>
-    </div>
-    <div class="slider_area">
-      <div class="slider">
-        <ul class="bxslider">
-          <li><img src="{{asset('frontend/images/1.jpg')}}" alt="" title="Slider caption text" /></li>
-          <li><img src="{{asset('frontend/images/2.jpg')}}" alt="" title="Slider caption text" /></li>
-          <li><img src="{{asset('frontend/images/3.jpg')}}" alt="" title="Slider caption text" /></li>
-        </ul>
-      </div>
-    </div>
+@include('layouts.bagian_frontend.navbar2')
     <div class="content_area">
       <div class="main_content floatleft">
         <div class="left_coloum floatleft">
           <div class="single_left_coloum_wrapper">
-            <h2 class="title">from   around   the   world</h2>
+          @foreach($berita as $data)
+          <h2 class="title">Terbaru </h2>
             <a class="more" href="#">more</a>
-            <div class="single_left_coloum floatleft"> <img src="{{asset('frontend/images/single_featured.png')}}" alt="" />
-              <h3>Lorem ipsum dolor sit amet, consectetur</h3>
-              <p>Nulla quis lorem neque, mattis venenatis lectus. In interdum ullamcorper 
-                dolor eu mattis.</p>
+            <div class="single_left_coloum floatleft"> <img src="{{$data->image()}}" alt="" style="width:120px; height:120px;" class="img-responsive"/>
+            <h4 class="">{{ $data->judul}}</h4>
+              <p>{{ $data->isi}}</p>
+              <p>{{ $data->kategori->nama_kategori}}</p>
+              <p>{{ $data->nama_penulis}}</p>
+              <p>{{ $data->tanggal}}</p>
               <a class="readmore" href="#">read more</a> </div>
+              @endforeach
             <div class="single_left_coloum floatleft"> <img src="{{asset('frontend/images/single_featured.png')}}" alt="" />
               <h3>Lorem ipsum dolor sit amet, consectetur</h3>
               <p>Nulla quis lorem neque, mattis venenatis lectus. In interdum ullamcorper 
@@ -308,10 +198,10 @@
     </div>
   </div>
 </div>
-<script type="text/javascript" src="assets/js/jquery-min.js"></script> 
-<script type="text/javascript" src="assets/js/bootstrap.min.js"></script> 
-<script type="text/javascript" src="assets/js/jquery.bxslider.js"></script> 
-<script type="text/javascript" src="assets/js/selectnav.min.js"></script> 
+<script type="text/javascript" src="{{asset('frontend/assets/js/jquery-min.js')}}"></script> 
+<script type="text/javascript" src="{{asset('frontend/assets/js/bootstrap.min.js')}}"></script> 
+<script type="text/javascript" src="{{asset('frontend/assets/js/jquery.bxslider.js')}}"></script> 
+<script type="text/javascript" src="{{asset('frontend/assets/js/selectnav.min.js')}}"></script> 
 <script type="text/javascript">
 selectnav('nav', {
     label: '-Navigation-',

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\FrontendController; 
 
 /*
 |--------------------------------------------------------------------------
@@ -61,3 +62,5 @@ Route::get('kategori', function(){
 
 Route::resource('berita',BeritaController::class);
 Route::resource('kategori',KategoriController::class);
+
+Route::resource('/', FrontendController::class);
